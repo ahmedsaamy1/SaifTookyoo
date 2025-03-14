@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyption Rapper - Saif Tokyo</title>
+    <link href="logo.jpg" type="image/x-icon" rel="icon" />
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a; /* Dark background */
+            color: #fff; /* White text */
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+
+            body.light-mode {
+                background-color: #f4f4f4; /* Light background */
+                color: #333; /* Dark text */
+            }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease; /* Smooth color transition */
+        }
+
+            header.light-mode {
+                background-color: #fff;
+                color: #333;
+            }
+
+            header:hover {
+                background-color: #444; /* Change color on hover */
+            }
+
+            header h1 {
+                margin: 0;
+                display: flex;
+                align-items: center;
+                font-size: 24px;
+            }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            animation: spin 4s linear infinite; /* Continuous rotation */
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        section {
+            padding: 20px;
+            margin: 80px 20px 20px; /* Adjusted for fixed header */
+            background-color: #262626; /* Darker background for sections */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+
+            section.light-mode {
+                background-color: #fff;
+                color: #333;
+            }
+
+        h2 {
+            color: #ff4d4d; /* Red color for headings */
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            ul li {
+                margin: 10px 0;
+            }
+
+                ul li a {
+                    text-decoration: none;
+                    color: #ff4d4d; /* Red color for links */
+                }
+
+                    ul li a:hover {
+                        text-decoration: underline;
+                    }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+
+            footer.light-mode {
+                background-color: #fff;
+                color: #333;
+            }
+
+        .singer-image {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .singer-image:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px #ff4d4d, 0 0 40px #ff4d4d; /* Fire effect */
+            }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+            .video-container iframe {
+                width: 100%;
+                max-width: 560px;
+                height: 315px;
+                border: none;
+                border-radius: 8px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+                .video-container iframe:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 0 20px #ff4d4d, 0 0 40px #ff4d4d; /* Fire effect */
+                }
+
+        .social-media {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            .social-media a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 24px;
+                transition: color 0.3s ease, transform 0.3s ease;
+                display: flex;
+                align-items: center;
+            }
+
+                .social-media a:hover {
+                    color: #ff4d4d; /* Red color on hover */
+                    transform: translateY(-3px);
+                }
+
+            .social-media span {
+                margin-left: 5px;
+                font-size: 16px;
+            }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header {
+                padding: 10px;
+            }
+
+                header h1 {
+                    font-size: 20px;
+                }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .social-media a {
+                font-size: 20px;
+            }
+
+            .singer-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .video-container iframe {
+                height: 200px;
+            }
+
+            .social-media {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Toggle Button with Icon */
+        .toggle-button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            position: absolute;
+            left: 83%; /* Position the icon 10% from the left */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+            .toggle-button:hover {
+                color: #ff4d4d; /* Red color on hover */
+            }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Toggle Button -->
+    <header>
+        <h1>
+            <img src="logo.jpg" alt="Saif Tokyo Logo" class="logo">
+            Saif Tokyo
+        </h1>
+        <button class="toggle-button" onclick="toggleMode()">
+            <i class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
+        </button>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About the Artist</h2>
+        <img src="f1.jpg" alt="Saif Tokyo's Photo" class="singer-image">
+        <p>Saif Tokyo is a <strong>renowned Egyptian rapper</strong> from <strong>Meet Ghamr, Egypt</strong>. He began his illustrious music career in <strong>2018</strong> and has since risen to fame with his unique style, powerful lyrics, and captivating performances. Known for his ability to blend traditional Egyptian sounds with modern rap, Saif Tokyo has become a symbol of innovation and creativity in the music industry.</p>
+
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="https://www.instagram.com/sviftokyo_?igsh=MWllcmxiN2U5dW1xeg==" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/share/1A6KiwMZtW/" target="_blank">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="https://youtube.com/@sviftokyo?si=so7FXBOVOcakFUb8" target="_blank">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- YouTube Videos Section -->
+    <section id="videos">
+        <h2>YouTube Videos</h2>
+        <div class="video-container">
+            <!-- Video 1 -->
+            <iframe src="https://www.youtube.com/embed/8WQCKr8lSPQ" allowfullscreen></iframe>
+            <!-- Video 2 -->
+            <iframe src="https://www.youtube.com/embed/RhTQcyxMhwI" allowfullscreen></iframe>
+            <!-- Video 3 -->
+            <iframe src="https://www.youtube.com/embed/FjExOkrnB2s" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- SoundCloud Links Section -->
+    <section id="soundcloud-links">
+        <h2>SoundCloud Tracks</h2>
+        <ul>
+            <li><a href="https://on.soundcloud.com/AEyZKYpx4kD3oz4P7" target="_blank">Track 1 on SoundCloud</a></li>
+            <li><a href="https://on.soundcloud.com/iaCosmqkrskiUAkq8" target="_blank">Track 2 on SoundCloud</a></li><br /><br /><br />
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Developed by Ahmed Samy &copy; 2025.</p>
+    </footer>
+
+    <script>
+        // JavaScript for Toggle Mode
+        function toggleMode() {
+            const body = document.body;
+            const header = document.querySelector('header');
+            const sections = document.querySelectorAll('section');
+            const footer = document.querySelector('footer');
+            const toggleButton = document.querySelector('.toggle-button i');
+
+            body.classList.toggle('light-mode');
+            header.classList.toggle('light-mode');
+            sections.forEach(section => section.classList.toggle('light-mode'));
+            footer.classList.toggle('light-mode');
+
+            // Change icon based on mode
+            if (body.classList.contains('light-mode')) {
+                toggleButton.classList.remove('fa-moon');
+                toggleButton.classList.add('fa-sun');
+            } else {
+                toggleButton.classList.remove('fa-sun');
+                toggleButton.classList.add('fa-moon');
+            }
+        }
+
+        // Welcome Message
+        window.onload = function () {
+            alert("Welcome to Saif Tokyo's official page!");
+        };
+    </script>
+</body>
+</html>
